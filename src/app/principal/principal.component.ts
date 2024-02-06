@@ -28,6 +28,7 @@ export class PrincipalComponent implements OnInit {
       data => {
         if (data.codigo == 1) {
           this.ngOnInit();
+          alert("Recarga exitosa");
         } else {
           alert("Error al insertar" + data.mensaje);
         }
