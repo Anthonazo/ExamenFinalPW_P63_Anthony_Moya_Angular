@@ -1,0 +1,57 @@
+<div class="global-container">
+    <div class="global">
+      <div *ngFor="let usuario of usuario | async">
+        <h2>Usuario {{ usuario.nombre }}</h2>
+        <table border="1">
+          <tbody>
+            <tr>
+              <th>Nombre</th>
+              <th>Número de Celular</th>
+              <th>Saldo</th>
+              <th>Operador</th>
+            </tr>
+            <tr>
+              <td>{{ usuario.nombre }}</td>
+              <td>{{ usuario.numCelular }}</td>
+              <td>{{ usuario.saldo }}</td>
+              <td>{{ usuario.operador }}</td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <h3>Registros:</h3>
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Monto</th>
+              <th>Fecha</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let registro of usuario.registro">
+              <td>{{ registro.monto }}</td>
+              <td>{{ registro.fecha }}</td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <hr>
+      </div>
+    </div>
+    <div>
+        <h3>Recagas</h3>
+        <form action="">
+            <label for="origen">Numero de telefono</label>
+            <input type="text" name="origen" id="origen" [(ngModel)]="recarga.numTelefono">
+    
+            <label for="destino">Operadora</label>
+            <input type="text" name="destino" id="destino" [(ngModel)]="recarga.operador">
+    
+            <label for="monto">Monto</label>
+            <input type="number" name="monto" id="monto" [(ngModel)]="recarga.monto">
+    
+            <button (click)="recargar()">Recargar</button>
+        </form>
+    </div>
+  </div>
+  
